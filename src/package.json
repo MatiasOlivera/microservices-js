@@ -1,0 +1,17 @@
+{
+  "name": "microservices-js",
+  "version": "1.0.0",
+  "author": "",
+  "main": "index.ts",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "bun run index.ts",
+    "dev": "bun run index.ts"
+  },
+  "dependencies": {
+    "moleculer": "^0.14.35"
+  }
+}

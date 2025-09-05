@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/src
+      - ./tmp:/tmp
+    working_dir: /src
+    command: sh -c "bun install && bun start"
+    command: bun start
+volumes:
+  node_modules: {}

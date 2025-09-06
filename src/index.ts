@@ -1,10 +1,12 @@
 import { User, UserService } from "./services/user.service";
 import { EmailService } from "./services/email.service";
+import { AuthService } from "./services/auth.service";
 
 async function startApp() {
   // Start services
   const user = await UserServiceSimulation();
   await EmailServiceSimulation(user);
+  await AuthServiceSimulation(user);
 }
 
 startApp();
@@ -50,4 +52,15 @@ async function EmailServiceSimulation(user: User) {
     // Stop services
     await EmailService.stop();
   }
+}
+
+async function AuthServiceSimulation(user: User) {
+  const authResult = await AuthService.call("auth.authUser", {
+    username: user.username,
+    password: "password123",
+  });
+
+  console.log("Auth result:", authResult);
+
+  await AuthService.stop();
 }
